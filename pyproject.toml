@@ -42,6 +42,7 @@ dev-dependencies = [
     "shibuya>=2024.8.30",
     "sphinxcontrib-mermaid>=0.9.2",
     "sphinx-design>=0.6.1",
+    "git-cliff>=2.6.1",
 ]
 package = true
 
@@ -187,7 +188,7 @@ body = """
 """
 trim = true
 footer = """
-Byte Bot Changelog
+App Changelog
 """
 #postprocessors = [{ pattern = "`", replace = "``" }]
 

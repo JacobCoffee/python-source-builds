@@ -333,6 +333,23 @@ wheels = [
 ]
 
 [[package]]
+name = "git-cliff"
+version = "2.6.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a6/b2/266a376450ed2d2779e6881f73f3ecb6e7651eaf1641543f0d246d25d156/git_cliff-2.6.1.tar.gz", hash = "sha256:5a6ab41efb547c01d09d0354f4132aa3a46e2aab5e60c576bca1def6f6efec9f", size = 80951 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/49/35/a085eaaffc04ba73bea83479aae4f36bdaccb716c069f1edd0b9e5cb1b1a/git_cliff-2.6.1-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:c7bf47e3cccc5aaab360231428efc3e5fc868b16add6188947dbfd397e0b752f", size = 6475059 },
+    { url = "https://files.pythonhosted.org/packages/e1/f8/08833e6e33b91ce0440718006c07176c54edeee873cf2ae8e3eb483bf395/git_cliff-2.6.1-py3-none-macosx_11_0_arm64.whl", hash = "sha256:6ba81968e13f2d91a3da062313c04818c5d9b8eb65a0fa799668d4217182fe1e", size = 6030702 },
+    { url = "https://files.pythonhosted.org/packages/a0/fd/8d3eb58d609e89083ed838be27d5fb5f50de2e7f7e23fc98deff6f390780/git_cliff-2.6.1-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:903dddef02eea4a77a8d20242a9a78c09e3cf8132fd447eb40ee4f90d5705199", size = 6370975 },
+    { url = "https://files.pythonhosted.org/packages/fd/9a/85c3b7696947ebf8377df105bed670d1dd494c12a13d5c7cb0d0f53cd03c/git_cliff-2.6.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:be626d41b461b889c4e6a6944115bd1df37bd16428881680d12ffde57c460a2d", size = 6817707 },
+    { url = "https://files.pythonhosted.org/packages/76/f6/c7e7ae1fcbde4bf09de65c24f3ec22af9403f73adabf2b5e5e559bfaefe0/git_cliff-2.6.1-py3-none-manylinux_2_28_aarch64.whl", hash = "sha256:56636d2c1a73ba687a528befbef96dcc79cdd94ec7c166d17362ce4e336a6538", size = 6419227 },
+    { url = "https://files.pythonhosted.org/packages/e8/ff/32aed7902bd1e1a0748cf5775d88c614865d5f97dcac70d881a8a662fe5f/git_cliff-2.6.1-py3-none-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:401acf2f65d7fab41afacc72d7c225a8a58b127821b7e23ec7420e61407d1df2", size = 6670198 },
+    { url = "https://files.pythonhosted.org/packages/14/d4/8ca20b1a28119aa4ff85553102334054056d3f4e754259c384c1406e9280/git_cliff-2.6.1-py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:f18d6c485f7198fe4e430fc059488d033ea9ccca122427c7647617ae1d3f4d33", size = 7065947 },
+    { url = "https://files.pythonhosted.org/packages/e8/09/35237627f7f731324c7bfc77cfef11c4bd85b1c23d30d796926f7fea4b4f/git_cliff-2.6.1-py3-none-win32.whl", hash = "sha256:f5b943b071bfdbdf1027ba0da529590305ec1be018d4236f0bacf5cf31e60b86", size = 6164541 },
+    { url = "https://files.pythonhosted.org/packages/a5/00/432b89766f1b3172a569b70d7f873b2d7c41e43e293b86d3ac75f0126d7d/git_cliff-2.6.1-py3-none-win_amd64.whl", hash = "sha256:59fb3f42b51eb23cf32686f5bb72f4d82b63e28c09c41db8706c9cfee3e9fab6", size = 6878759 },
+]
+
+[[package]]
 name = "granian"
 version = "1.6.0"
 source = { registry = "https://pypi.org/simple" }
@@ -933,6 +950,7 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "copier" },
+    { name = "git-cliff" },
     { name = "litestar-vite", extra = ["nodeenv"] },
     { name = "mypy" },
     { name = "pytailwindcss" },
@@ -961,6 +979,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "copier", specifier = ">=9.3.1" },
+    { name = "git-cliff", specifier = ">=2.6.1" },
     { name = "litestar-vite", extras = ["nodeenv"], specifier = ">=0.2.9" },
     { name = "mypy", specifier = ">=1.11.2" },
     { name = "pytailwindcss", specifier = ">=0.2.0" },

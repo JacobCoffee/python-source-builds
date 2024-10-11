@@ -43,3 +43,6 @@ docs-serve:  ## Serve the docs locally
 
 docs:  ## Dump the existing built docs and rebuild them
 	@uv run sphinx-build -M html docs docs/_build/ -E -a -j auto --keep-going
+
+changelog:	## Generate a changelog
+	@uv run git-cliff --config pyproject.toml --output docs/changelog.rst
