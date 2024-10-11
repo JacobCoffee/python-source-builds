@@ -1,0 +1,13 @@
+name: "Bug Report"
+description: Create an issue for a bug.
+title: "Bug: <title>"
+labels: ["bug", "triage required"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: Please enter an description of the bug you are encountering
+      placeholder:
+    validations:
+      required: true

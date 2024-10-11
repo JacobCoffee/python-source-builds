@@ -1,0 +1,232 @@
+[project]
+name = "python-source-builder"
+version = "0.1.0"
+description = "Build Python from source, but with 3.13 options"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiosqlite>=0.20.0",
+    "litestar-granian>=0.5.1",
+    "litestar[jinja,structlog]>=2.11.0",
+    "pygments>=2.18.0",
+    "python-dotenv>=1.0.1",
+    "uvicorn>=0.30.6",
+]
+
+[project.scripts]
+app = "app.__main__:run_cli"
+
+[build-system]
+requires = ["hatchling", "nodeenv"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["app/"]
+
+[tool.uv]
+dev-dependencies = [
+    "litestar-vite[nodeenv]>=0.2.9",
+    "pytest>=8.3.3",
+    "ruff>=0.6.5",
+    "mypy>=1.11.2",
+    "copier>=9.3.1",
+    "pytailwindcss>=0.2.0",
+    "sphinx>=8.1.0",
+    "sphinx-autobuild>=2024.10.3",
+    "sphinx-copybutton>=0.5.2",
+    "sphinx-click>=6.0.0",
+    "sphinx-toolbox>=3.8.1",
+    "shibuya>=2024.8.30",
+    "sphinxcontrib-mermaid>=0.9.2",
+    "sphinx-design>=0.6.1",
+]
+package = true
+
+[tool.codespell]
+count = ""
+quiet-level = 3
+ignore-words-list = "alog"
+skip = "*.min.js"
+
+[tool.ruff]
+line-length = 120
+src = ["app", "tests"]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["ANN101", "ANN102", "ANN401", "PLR0913", "RUF012", "COM812", "ISC001", "ERA001", "TD", "FIX002"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 12
+
+[tool.ruff.lint.pep8-naming]
+classmethod-decorators = [
+    "classmethod",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = [
+    "app",
+    "tests",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests can use magic values, assertions, and relative imports
+#"**/*.*" = [
+#    "ANN101",
+#    "ANN401",
+#    "ANN102",
+#    "TD",
+#    "FIX002",
+#    "RUF012", # ClassVar Annotations - # TODO: Investigate/Fix
+#    "FBT001", # Boolean typed positional argument in function definition
+#    "FBT002", # Boolean default positional argument in function definition
+#    "FBT003", # Boolean Boolean default positional argument in function definition
+#    "B008", # Do not perform function calls in argument defaults
+#]
+"**/*.*" = ["PLR0913", "SLF001", "D104", "E501", "N815", "N999"]
+"tests/**/*.*" = [
+    "S101",
+    "D",
+    "ARG",
+    "PGH",
+    "B",
+    "FBT",
+    "PTH",
+    "A",
+    "TCH",
+    "DTZ",
+    "TRY",
+    "EM",
+    "S",
+    "N",
+    "SIM",
+    "PLR",
+    "BLE",
+    "RSE",
+    "C901",
+    "PLW",
+    "G",
+    "PIE",
+    "RUF012",
+    "FA",
+    "ANN",
+    "SLF",
+    "PT",
+    "INP",
+    "TD",
+    "FIX",
+    "FBT",
+    "PLR0913", # too many arguments
+    "PT",
+    "PLR2004",
+    "TID252",
+    "T",
+]
+"docs/**/*.*" = [
+    "S",
+    "B",
+    "DTZ",
+    "A",
+    "TCH",
+    "ERA",
+    "D",
+    "RET",
+    "E731",
+    "RUF012",
+    "FA100",
+    "ARG001",
+]
+"docs/conf.py" = ["FIX002", "ARG001", "INP001"]
+"tools/**/*.*" = ["D", "ARG", "EM", "TRY", "G", "FBT", "INP"]
+
+[tool.git-cliff.changelog]
+header = """
+=========
+Changelog
+=========\n
+All commits to this project will be documented in this file.\n
+"""
+body = """
+{% if version %}\
+    `Release [v{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }} <https://github.com/JacobCoffee/python-source-builder/releases/tag/v{{ version | trim_start_matches(pat="v") }}>`_
+    ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    * `See All commits in v{{ version | trim_start_matches(pat="v") }} <https://github.com/JacobCoffee/python-source-builder/commits/v{{ version | trim_start_matches(pat="v") }}>`_
+{% else %}\
+    [unreleased]
+    ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endif %}\
+{% if version and previous %}\
+    {% if previous.commit_id %}
+        `{{ previous.commit_id | truncate(length=7, end="") }} <https://github.com/JacobCoffee/python-source-builder/commit/{{ previous.commit_id }}>`_ ... \
+        `{{ commit_id | truncate(length=7, end="") }} <https://github.com/JacobCoffee/python-source-builder/commit/{{ commit_id }}>`_ \
+        | `See diff for {{ version }} <https://github.com/JacobCoffee/python-source-builder/compare/{{ previous.commit_id }}...{{ commit_id }}>`_
+    {% endif %}\
+{% endif %}\
+{% for group, commits in commits | group_by(attribute="group") %}
+    {{ group | upper_first }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    {% for commit in commits %}
+        * (`{{ commit.id | truncate(length=7, end="") }} <https://github.com/JacobCoffee/python-source-builder/commit/{{ commit.id }}>`_) {% if commit.breaking %}[**breaking**] {% endif %} - {{ commit.message | upper_first }} ({{ commit.author.name }})\
+          {% for footer in commit.footers -%}
+            , {{ footer.token }}{{ footer.separator }}{{ footer.value }}\
+          {% endfor %}\
+    {% endfor %}
+{% endfor %}\n
+"""
+trim = true
+footer = """
+Byte Bot Changelog
+"""
+#postprocessors = [{ pattern = "`", replace = "``" }]
+
+[tool.git-cliff.git]
+conventional_commits = true
+filter_unconventional = true
+split_commits = false
+commit_parsers = [
+    { message = "^feat", group = "Features" },
+    { message = "^fix", group = "Bug Fixes" },
+    { message = "^doc", group = "Documentation" },
+    { message = "^perf", group = "Performance" },
+    { message = "^refactor", group = "Refactor" },
+    { message = "^style", group = "Styling" },
+    { message = "^test", group = "Testing" },
+    { message = "^chore\\(release\\): prepare for", skip = true },
+    { message = "^chore", group = "Miscellaneous Tasks" },
+    { body = ".*security", group = "Security" },
+]
+commit_preprocessors = [
+    # Matches a single backtick that is not preceded by another backtick (negative lookbehind)
+    # and not followed by another backtick (negative lookahead).. but these aren't supported
+    # in git cliff regexes. So we have to do it in 3 steps:
+    # Step 1: Replace pairs of backticks with a placeholder (e.g., "DOUBLEBACKTICK")
+    { pattern = "``", replace = "DOUBLEBACKTICK" },
+    # Step 2: Replace single backticks with double backticks
+    { pattern = "`", replace = "``" },
+    # Step 3: Replace the placeholder back to double backticks
+    { pattern = "DOUBLEBACKTICK", replace = "``" },
+    # TODO: Fix Co-authored commits
+]
+protect_breaking_commits = false
+filter_commits = false
+tag_pattern = "v[0-9]*"
+skip_tags = "v0.1.0-beta.1"
+ignore_tags = ""
+topo_order = false
+sort_commits = "oldest"
+link_parsers = [
+    # TODO: Supposedly matches on #1234 but doesn't work?
+    { pattern = "\\(#(\\d+)\\)", href = "https://github.com/JacobCoffee/python-source-builder/issues/$1" },
+]

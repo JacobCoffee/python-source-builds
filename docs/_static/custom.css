@@ -1,0 +1,37 @@
+:root {
+  --app-primary: #498dd0;
+  --app-yellow: #ffde57;
+  --app-dark: #0c0c0c;
+  --app-white: #ebebe9;
+}
+
+html.dark,
+html.light {
+}
+
+html.light {
+  --syntax-light-constant: var(--app-primary);
+  /*  --syntax-light-text: #09090a;*/
+  /*  --syntax-light-cap-bg: #325b76;*/
+  /*  --syntax-light-pre-bg: #ddefff;*/
+  --syntax-light-keyword: var(--app-primary);
+  --syntax-light-property: var(--app-yellow);
+}
+
+html.light .yue {
+  --yue-c-code-bg: var(--app-white) !important;
+  --yue-c-code: #0b8980 !important;
+  /*--yue-c-black: #11a1ff !important;*/
+}
+
+html.dark {
+  --syntax-dark-keyword: var(--app-primary);
+  --syntax-dark-property: var(--app-yellow);
+  --syntax-dark-constant: var(--app-primary);
+}
+
+html.dark .yue {
+  --yue-c-code-bg: var(--app-dark) !important;
+  --yue-c-code: #0b8980 !important;
+  /*--yue-c-black: #11a1ff !important;*/
+}
