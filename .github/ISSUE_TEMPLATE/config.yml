@@ -1,0 +1,11 @@
+blank_lines_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://docs.pysourcebuild.scriptr.dev/
+    about: Official documentation - please check here before opening an issue.
+  - name: Website
+    url: https://pysourcebuild.scriptr.dev
+    about: Main website
+  - name: Discord
+    url: https://discord.gg/ZVG8hN6RrJ
+    about: Join our Discord community to chat or get in touch with the maintainers.
