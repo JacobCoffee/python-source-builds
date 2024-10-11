@@ -3,3 +3,4 @@
 .mypy_cache/
 .venv/
 _build/
+script.html
