@@ -1,0 +1,16 @@
+{
+  "name": "python-source-builder",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {},
+  "browserslist": "defaults, not ie <= 11",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "tailwindcss": "^3.4.13"
+  }
+}
