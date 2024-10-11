@@ -110,7 +110,7 @@ html_theme_options = {
     "twitter_url": "https://twitter.com/_scriptr",
     "youtube_url": "https://youtube.com/@monorepo",
     "nav_links": [
-        {"title": "Dashboard", "url": ""},
+        {"title": "Dashboard", "url": "https://pysourcebuild.scriptr.dev/"},
         {
             "title": "Sponsor me",
             "url": "https://github.com/sponsors/JacobCoffee",
