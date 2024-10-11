@@ -15,6 +15,8 @@ Bug Fixes
 * (`390450b <https://github.com/JacobCoffee/python-source-builder/commit/390450b81d8b2884ee2fb5d97d302b632bd3dc1b>`_)  - Small url fix (Jacob Coffee)
 * (`c477f67 <https://github.com/JacobCoffee/python-source-builder/commit/c477f67cbcd6d3c71f506f88ef0299d4c28e4d20>`_)  - Update ci perms (Jacob Coffee)
 * (`314b25c <https://github.com/JacobCoffee/python-source-builder/commit/314b25c3b64aa8973def3672ee20e61af78c7194>`_)  - Changelog stuff (Jacob Coffee)
+* (`25578a4 <https://github.com/JacobCoffee/python-source-builder/commit/25578a438da06bcbebc9a97c07a19ed16116f8f1>`_)  - Update changelog gen cmd (Jacob Coffee)
+* (`1d0610f <https://github.com/JacobCoffee/python-source-builder/commit/1d0610f49a46c948acf14e114adf878079df438d>`_)  - Please work (Jacob Coffee)
 
 Features
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
