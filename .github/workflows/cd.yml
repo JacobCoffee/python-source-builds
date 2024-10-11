@@ -24,6 +24,9 @@ jobs:
         with:
           config: pyproject.toml
           args: --latest
+        env:
+          OUTPUT: docs/changelog.rst
+          GITHUB_REPO: ${{ github.repository }}
 
       - name: Commit changelog
         run: |
