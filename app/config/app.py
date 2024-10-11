@@ -45,6 +45,21 @@ log_config = StructlogConfig(
                     "level": settings.log.GRANIAN_ERROR_LEVEL,
                     "handlers": ["queue_listener"],
                 },
+                "aiosqlite": {
+                    "propagate": False,
+                    "level": 30,
+                    "handlers": ["queue_listener"],
+                },
+                "httpcore": {
+                    "propagate": False,
+                    "level": 30,
+                    "handlers": ["queue_listener"],
+                },
+                "httpx": {
+                    "propagate": False,
+                    "level": 30,
+                    "handlers": ["queue_listener"],
+                },
             },
         ),
     ),

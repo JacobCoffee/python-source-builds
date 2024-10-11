@@ -5,10 +5,12 @@ description = "Build Python from source, but with 3.13 options"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "aiosqlite>=0.20.0",
     "geopy>=2.4.1",
     "litestar-granian>=0.5.1",
     "litestar[jinja,structlog]>=2.11.0",
     "overpy>=0.7",
+    "pygments>=2.18.0",
     "python-dotenv>=1.0.1",
     "uvicorn>=0.30.6",
 ]
@@ -86,7 +88,7 @@ known-first-party = [
 #    "FBT003", # Boolean Boolean default positional argument in function definition
 #    "B008", # Do not perform function calls in argument defaults
 #]
-"**/*.*" = ["PLR0913", "SLF001", "D104", "E501"]
+"**/*.*" = ["PLR0913", "SLF001", "D104", "E501", "N815"]
 "tests/**/*.*" = [
     "S101",
     "D",

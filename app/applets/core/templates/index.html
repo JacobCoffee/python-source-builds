@@ -4,23 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Build Python from Source</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/styles.css" />
     <link rel="icon" type="image/png" href="/static/favicon.ico" />
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <!--<script src="https://cdn.tailwindcss.com"></script>-->
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <style>
+      {
+      {
+          pygments_css | safe
+      }
+      }
+      html, body {
+          height: 100%;
+      }
+
+      body {
+          display: flex;
+          flex-direction: column;
+      }
+
+      .flex-grow {
+          flex: 1 0 auto;
+      }
+
+      footer {
+          flex-shrink: 0;
+      }
+    </style>
   </head>
-  <body class="h-full" x-data="{ selectedVersion: '', copyText: 'Copy' }">
-    <div class="min-h-full">
+
+  <body class="h-full flex flex-col">
+    <div class="flex-grow">
       <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex items-center">
+        <div class="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8 flex items-center">
           <img src="/static/pylogo.svg" alt="Python Logo" class="h-12 w-auto mr-4" />
-          <h1 class="text-3xl font-bold text-gray-900">Build fully-featured Python from source</h1>
+          <h1 class="text-3xl font-bold text-gray-900">Custom Python from source</h1>
         </div>
       </header>
 
-      <main>
-        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          <div class="px-4 py-6 sm:px-0">
+      <main class="flex-grow flex flex-col">
+        <div class="max-w-7xl mx-auto py-2 sm:px-6 lg:px-8 flex flex-col flex-grow">
+          <div class="px-4 py-6 sm:px-0 flex flex-col flex-grow">
             <div class="bg-white shadow overflow-hidden sm:rounded-lg">
               <div class="px-4 py-5 sm:p-6">
                 <h2 class="text-lg leading-6 font-medium text-gray-900 mb-4">Features</h2>
@@ -33,70 +56,148 @@
               </div>
             </div>
 
-            <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2 flex-grow">
               <div class="bg-white shadow sm:rounded-lg">
                 <div class="px-4 py-5 sm:p-6">
-                  <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">Choose Python Version</h3>
-                  <label>
-                    <select
-                      x-model="selectedVersion"
-                      class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                      <option value="">Select Python version</option>
-                      {% for version in python_versions %}
-                      <option value="{{ version }}">{{ version }}</option>
-                      {% endfor %}
-                    </select>
-                  </label>
+                  <form
+                    hx-post="/api/generate-script"
+                    hx-target="#scriptContainer"
+                    hx-swap="innerHTML"
+                    hx-indicator="#loading">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">Choose Python Version</h3>
+                    <span class="block text-sm text-gray-500"><a href="/api/versions">View available versions</a></span>
+                    <label>
+                      <select
+                        name="selectedVersion"
+                        class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md">
+                        <option value="">Select Python version</option>
+                        {% for version in python_versions %}
+                        <option value="{{ version.full_version }}">{{ version.name }}</option>
+                        {% endfor %}
+                      </select>
+                    </label>
 
-                  <h3 class="text-lg leading-6 font-medium text-gray-900 mt-8 mb-4">Build Options</h3>
-                  <div class="space-y-4">
-                    {% for option in compilation_options %}
-                    <div class="flex items-start">
-                      <div class="flex items-center h-5">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 mt-6 mb-4">Build Options</h3>
+
+                    <div class="space-y-2">
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">
+                          Folder path for Python binaries (--prefix)
+                        </label>
                         <input
-                          id="{{ option.id }}"
-                          name="{{ option.id }}"
-                          type="checkbox"
-                          class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" />
+                          type="text"
+                          name="prefixPath"
+                          class="mt-1 block w-full border-gray-300 rounded-md shadow-sm ring-primary focus:border-primary sm:text-sm outline-primary"
+                          placeholder="/opt/python/X.Y.Z/"
+                          value="/opt/python/" />
                       </div>
-                      <div class="ml-3 text-sm">
-                        <label for="{{ option.id }}" class="font-medium text-gray-700">{{ option.label }}</label>
+
+                      <div class="space-y-2">
+                        <label class="inline-flex items-center">
+                          <input
+                            type="checkbox"
+                            name="useAllCPUs"
+                            checked
+                            class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary" />
+                          <span class="ml-2 text-sm text-gray-900">Use all CPUs for compilation</span>
+                        </label>
+
+                        <label class="inline-flex items-center">
+                          <input
+                            type="checkbox"
+                            name="enableSpeedOptimization"
+                            checked
+                            class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary" />
+                          <span class="ml-2 text-sm text-gray-900">Enable speed optimization of Python binaries</span>
+                        </label>
+
+                        <label class="inline-flex items-center">
+                          <input
+                            type="checkbox"
+                            name="enableSharedLibraries"
+                            class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary" />
+                          <span class="ml-2 text-sm text-gray-900">Enable shared libraries</span>
+                        </label>
+
+                        <label class="inline-flex items-center">
+                          <input
+                            type="checkbox"
+                            name="runPostTest"
+                            class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary" />
+                          <span class="ml-2 text-sm text-gray-900">Run post-test of Python binaries</span>
+                        </label>
+                      </div>
+
+                      <h3 class="text-lg leading-6 font-medium text-gray-900 mt-6 mb-4">Post Installation</h3>
+
+                      <div class="space-y-2">
+                        <label class="inline-flex items-center">
+                          <input
+                            type="checkbox"
+                            name="updatePackages"
+                            class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary" />
+                          <span class="ml-2 text-sm text-gray-900">Update seed packages</span>
+                        </label>
+
+                        <label class="inline-flex items-center">
+                          <input
+                            type="checkbox"
+                            name="addSoftLinks"
+                            class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary" />
+                          <span class="ml-2 text-sm text-gray-900">Add symlinks to binaries</span>
+                        </label>
+                      </div>
+
+                      <h3 class="text-lg leading-6 font-medium text-gray-900 mt-6 mb-4">OS Related</h3>
+
+                      <div class="space-y-2">
+                        <span class="text-xs text-gray-500 mb-1 block">
+                          This may be required if you don't have the build packages needed to compile Python
+                        </span>
+                        <label class="inline-flex items-center">
+                          <input
+                            type="checkbox"
+                            name="installOSPackages"
+                            class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary" />
+                          <span class="ml-2 text-sm text-gray-900">
+                            Install required OS packages and developer tools
+                          </span>
+                        </label>
                       </div>
                     </div>
-                    {% endfor %}
-                  </div>
 
-                  <h3 class="text-lg leading-6 font-medium text-gray-900 mt-8 mb-4">Special Options</h3>
-                  <div class="space-y-4">
-                    <div class="flex items-start">
-                      <div class="flex items-center h-5">
+                    <div class="flex items-center justify-between mt-4">
+                      <label class="inline-flex items-center">
                         <input
-                          id="free_threaded"
-                          name="free_threaded"
                           type="checkbox"
-                          class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                          x-bind:disabled="selectedVersion !== '3.13'" />
-                      </div>
-                      <div class="ml-3 text-sm">
-                        <label for="free_threaded" class="font-medium text-gray-700">Free threaded builds</label>
-                      </div>
+                          id="selectAll"
+                          class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary"
+                        />
+                        <span class="ml-2 text-sm text-gray-900">Select All</span>
+                      </label>
+                      <button
+                        type="submit"
+                        class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded"
+                      >
+                        Generate Script
+                      </button>
                     </div>
-                  </div>
+                    <div id="loading" class="htmx-indicator"></div>
+                  </form>
                 </div>
               </div>
 
-              <div class="bg-white shadow sm:rounded-lg">
-                <div class="px-4 py-5 sm:p-6">
+              <div class="bg-white shadow sm:rounded-lg flex flex-col">
+                <div class="px-4 py-3 sm:p-6 flex flex-col flex-grow">
                   <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">Generated Script</h3>
-                  <div class="relative">
-                    <pre
-                      id="codeBlock"
-                      class="bg-gray-100 p-4 rounded-md text-sm overflow-x-auto"><code>{{ '{{ generated_script }}' }}</code></pre>
+                  <div class="relative flex-grow flex flex-col">
+                    <div id="scriptContainer" class="bg-gray-100 rounded-md p-4 overflow-y-auto flex-grow">
+                      <div id="codeBlock">{{ generated_script | safe }}</div>
+                    </div>
                     <button
-                      @click="copyToClipboard()"
-                      x-text="copyText"
-                      class="absolute top-2 right-2 bg-indigo-600 text-white px-3 py-1 rounded text-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                      Copy
+                      id="copyButton"
+                      class="absolute top-2 right-2 bg-primary hover:bg-primary-dark text-white px-3 py-1 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-150 ease-in-out">
+                      Copy Code
                     </button>
                   </div>
                 </div>
@@ -105,19 +206,39 @@
           </div>
         </div>
       </main>
-
-      <footer class="bg-white">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-500">
-          <p>
-            Created by
-            <a href="https://github.com/JacobCoffee/">Jacob Coffee</a>
-            with heavy inspiration from
-            <a href="https://www.build-python-from-source.com/">build-python-from-source.com</a>
-          </p>
-          <a href="https://github.com/JacobCoffee/python-source-builds">Source</a>
-        </div>
-      </footer>
     </div>
+
+    <footer class="bg-white shadow mt-auto">
+      <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-gray-500 text-sm">
+          Created by
+          <a href="https://github.com/JacobCoffee/">Jacob Coffee</a>
+          with heavy inspiration from
+          <a href="https://www.build-python-from-source.com/">build-python-from-source.com</a>
+        </p>
+        <p class="text-center text-gray-500 text-sm">
+          <a href="https://github.com/JacobCoffee/python-source-builds" class="inline-flex justify-center">
+            <!-- https://feathericons.dev/?search=code&iconset=feather -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              class="main-grid-item-icon mx-auto"
+              data-darkreader-inline-stroke=""
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              style="--darkreader-inline-stroke: currentColor">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
+          </a>
+        </p>
+      </div>
+    </footer>
 
     <script>
       function copyToClipboard() {
@@ -128,9 +249,45 @@
         textArea.select()
         document.execCommand("copy")
         document.body.removeChild(textArea)
-        this.copyText = "Copied!"
-        setTimeout(() => (this.copyText = "Copy"), 2000)
+        alert("Copied to clipboard!")
       }
+
+      document.getElementById("copyButton").addEventListener("click", function () {
+        const codeBlock = document.querySelector("#scriptContainer .source-no-lines")
+        if (codeBlock) {
+          const textArea = document.createElement("textarea")
+          textArea.value = codeBlock.innerText
+          document.body.appendChild(textArea)
+          textArea.select()
+          document.execCommand("copy")
+          document.body.removeChild(textArea)
+
+          // Provide visual feedback
+          this.textContent = "Copied!"
+          setTimeout(() => {
+            this.textContent = "Copy Code"
+          }, 2000)
+        }
+      })
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const selectAllCheckbox = document.getElementById('selectAll');
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#selectAll)');
+
+        selectAllCheckbox.addEventListener('change', function() {
+          checkboxes.forEach(checkbox => {
+            checkbox.checked = selectAllCheckbox.checked;
+          });
+        });
+
+        checkboxes.forEach(checkbox => {
+          checkbox.addEventListener('change', function() {
+            selectAllCheckbox.checked = Array.from(checkboxes).every(cb => cb.checked);
+          });
+        });
+      });
     </script>
   </body>
 </html>
