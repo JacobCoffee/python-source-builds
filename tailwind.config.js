@@ -1,9 +1,8 @@
-// import headlessuiPlugin from "@headlessui/tailwindcss"
 // noinspection ES6UnusedImports
 import { Config } from "tailwindcss"
 
 export default {
-  content: ["./app/**/*.{js,jsx,ts,tsx}"],
+  content: ["./**/templates/*.{html,js,ts}"],
   theme: {
     fontSize: {
       xs: ["0.75rem", { lineHeight: "1rem" }],
@@ -39,5 +38,4 @@ export default {
       },
     },
   },
-  // plugins: [headlessuiPlugin],
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-full bg-gray-100">
+<html lang="en" class="h-full bg-primary-100">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,13 +7,14 @@
     <link rel="icon" type="image/png" href="/static/favicon.ico" />
     <script src="/static/styles.css"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!--<script src="https://cdn.tailwindcss.com"></script>-->
   </head>
   <body class="h-full" x-data="{ selectedVersion: '', copyText: 'Copy' }">
     <div class="min-h-full">
       <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex items-center">
           <img src="/static/pylogo.svg" alt="Python Logo" class="h-12 w-auto mr-4" />
-          <h1 class="text-3xl font-bold text-gray-900">Build fully-featured Python from source</h1>
+          <h1 class="text-3xl font-bold text-primary-900">Build fully-featured Python from source</h1>
         </div>
       </header>
 
@@ -22,8 +23,8 @@
           <div class="px-4 py-6 sm:px-0">
             <div class="bg-white shadow overflow-hidden sm:rounded-lg">
               <div class="px-4 py-5 sm:p-6">
-                <h2 class="text-lg leading-6 font-medium text-gray-900 mb-4">Features</h2>
-                <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                <h2 class="text-lg leading-6 font-medium text-primary-900 mb-4">Features</h2>
+                <ul class="list-disc pl-5 space-y-2 text-primary-600">
                   <li>Build fully-featured Python from source</li>
                   <li>Generates shell script for easy installation</li>
                   <li>Installs to specified directory</li>
@@ -35,11 +36,11 @@
             <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
               <div class="bg-white shadow sm:rounded-lg">
                 <div class="px-4 py-5 sm:p-6">
-                  <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">Choose Python Version</h3>
+                  <h3 class="text-lg leading-6 font-medium text-primary-900 mb-4">Choose Python Version</h3>
                   <label>
                     <select
                       x-model="selectedVersion"
-                      class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                      class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-primary-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                       <option value="">Select Python version</option>
                       {% for version in python_versions %}
                       <option value="{{ version }}">{{ version }}</option>
@@ -47,7 +48,7 @@
                     </select>
                   </label>
 
-                  <h3 class="text-lg leading-6 font-medium text-gray-900 mt-8 mb-4">Build Options</h3>
+                  <h3 class="text-lg leading-6 font-medium text-primary-900 mt-8 mb-4">Build Options</h3>
                   <div class="space-y-4">
                     {% for option in compilation_options %}
                     <div class="flex items-start">
@@ -56,16 +57,16 @@
                           id="{{ option.id }}"
                           name="{{ option.id }}"
                           type="checkbox"
-                          class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" />
+                          class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-primary-300 rounded" />
                       </div>
                       <div class="ml-3 text-sm">
-                        <label for="{{ option.id }}" class="font-medium text-gray-700">{{ option.label }}</label>
+                        <label for="{{ option.id }}" class="font-medium text-primary-700">{{ option.label }}</label>
                       </div>
                     </div>
                     {% endfor %}
                   </div>
 
-                  <h3 class="text-lg leading-6 font-medium text-gray-900 mt-8 mb-4">Special Options</h3>
+                  <h3 class="text-lg leading-6 font-medium text-primary-900 mt-8 mb-4">Special Options</h3>
                   <div class="space-y-4">
                     <div class="flex items-start">
                       <div class="flex items-center h-5">
@@ -73,11 +74,11 @@
                           id="free_threaded"
                           name="free_threaded"
                           type="checkbox"
-                          class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                          class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-primary-300 rounded"
                           x-bind:disabled="selectedVersion !== '3.13'" />
                       </div>
                       <div class="ml-3 text-sm">
-                        <label for="free_threaded" class="font-medium text-gray-700">Free threaded builds</label>
+                        <label for="free_threaded" class="font-medium text-primary-700">Free threaded builds</label>
                       </div>
                     </div>
                   </div>
@@ -86,11 +87,11 @@
 
               <div class="bg-white shadow sm:rounded-lg">
                 <div class="px-4 py-5 sm:p-6">
-                  <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">Generated Script</h3>
+                  <h3 class="text-lg leading-6 font-medium text-primary-900 mb-4">Generated Script</h3>
                   <div class="relative">
                     <pre
                       id="codeBlock"
-                      class="bg-gray-100 p-4 rounded-md text-sm overflow-x-auto"><code>{{ '{{ generated_script }}' }}</code></pre>
+                      class="bg-primary-100 p-4 rounded-md text-sm overflow-x-auto"><code>{{ '{{ generated_script }}' }}</code></pre>
                     <button
                       @click="copyToClipboard()"
                       x-text="copyText"
@@ -106,7 +107,7 @@
       </main>
 
       <footer class="bg-white">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-primary-500">
           <p>
             Created by
             <a href="https://github.com/JacobCoffee/">Jacob Coffee</a>
