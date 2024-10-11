@@ -61,6 +61,7 @@ openapi_config = OpenAPIConfig(
     render_plugins=[
         ScalarRenderPlugin(
             version="latest",
+            css_url="/static/scalar.css",
         )
     ],
 )
