@@ -24,10 +24,10 @@ test:  ## Run tests
 	@uv run --no-sync pytest .
 
 frontend:  ## Run CSS compiler in watch mode
-	@uv run tailwindcss -i ./resources/tailwind.css -o ./app/applets/core/public/styles.css --minify --watch
+	@uv run tailwindcss -i ./resources/tailwind.css -o ./app/applets/core/public/styles.css --watch
 
 serve:  ## Run the API in development mode
 	@uv run app run --debug --reload
 
-applet:
+applet:  ## Generate a new applet
 	@uv run copier copy gh:JacobCoffee/applet-template app/applets/

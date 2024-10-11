@@ -15,7 +15,7 @@ class CoreController(Controller):
 
     path = "/"
 
-    @get("/")
+    @get("/", include_in_schema=False)
     async def index(self) -> Template:
         """Render the index page.
 

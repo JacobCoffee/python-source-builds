@@ -2,7 +2,7 @@
 import { Config } from "tailwindcss"
 
 export default {
-  content: ["./**/templates/*.{html,js,ts}"],
+  content: ["./app/applets/**/templates/*.{html,js,ts}"],
   theme: {
     fontSize: {
       xs: ["0.75rem", { lineHeight: "1rem" }],
@@ -30,8 +30,8 @@ export default {
         "5xl": "2.5rem",
       },
       fontFamily: {
-        sans: "var(--font-inter)",
-        display: "var(--font-dm-sans)",
+        sans: ["Inter", "sans-serif"],
+        display: ["DM Sans", "sans-serif"],
       },
       maxWidth: {
         "2xl": "40rem",
