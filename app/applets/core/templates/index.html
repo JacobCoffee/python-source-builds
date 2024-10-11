@@ -132,6 +132,38 @@
                             class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary" />
                           <span class="ml-2 text-sm text-gray-900">Run post-test of Python binaries</span>
                         </label>
+
+                        <label class="inline-flex items-center mb-2">
+                          <input
+                            type="checkbox"
+                            name="disableGIL"
+                            class="form-checkbox h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500" />
+                          <span class="ml-2 text-sm text-gray-900">
+                            Enable
+                            <a
+                              href="https://docs.python.org/3.13/whatsnew/3.13.html#free-threaded-cpython"
+                              class="text-blue-600 hover:text-blue-800 underline">
+                              Free-threaded
+                            </a>
+                            mode (3.13+)
+                          </span>
+                        </label>
+
+                        <label class="inline-flex items-center">
+                          <input
+                            type="checkbox"
+                            name="enableJIT"
+                            class="form-checkbox h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500" />
+                          <span class="ml-2 text-sm text-gray-900">
+                            Enable
+                            <a
+                              href="https://docs.python.org/3.13/whatsnew/3.13.html#an-experimental-just-in-time-jit-compiler"
+                              class="text-blue-600 hover:text-blue-800 underline">
+                              JIT
+                            </a>
+                            (3.13+)
+                          </span>
+                        </label>
                       </div>
 
                       <h3 class="text-lg leading-6 font-medium text-gray-900 mt-6 mb-4">Post Installation</h3>

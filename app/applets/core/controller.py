@@ -1,7 +1,9 @@
 """Core controller."""
 
+import msgspec
 from litestar import Controller, Request, get, post
 from litestar.contrib.htmx.response import HTMXTemplate
+from litestar.exceptions import ValidationException
 from litestar.response import Template
 from pygments import highlight
 from pygments.formatters.html import HtmlFormatter
@@ -46,52 +48,34 @@ class CoreController(Controller):
 
         Args:
             request (Request): The incoming request.
-            script_data (ScriptData, optional): Placeholder to render OpenAPI
+            script_data (ScriptData, optional): Placeholder to render ScriptData model in OpenAPI docs
 
         Returns:
             HTMXTemplate: The highlighted script.
         """
         form_data = await request.form()
-        processed_data = {}
+        data_dict = {
+            key: (
+                value == "on"
+                if isinstance(ScriptData.__annotations__[key], type)
+                and issubclass(ScriptData.__annotations__[key], bool)
+                else value or ""
+            )
+            for key, value in form_data.items()
+            if key in ScriptData.__annotations__
+        }
+        if not data_dict.get("selectedVersion"):
+            msg = "Python version must be selected"
+            raise ValidationException(msg)
 
-        for field_name in ScriptData.__annotations__:
-            value = form_data.get(field_name)
-            if value is not None:
-                processed_data[field_name] = (
-                    value == "on"
-                    if isinstance(getattr(ScriptData, field_name, None), bool)
-                    or field_name
-                    in [
-                        "installOSPackages",
-                        "enableSpeedOptimization",
-                        "enableSharedLibraries",
-                        "useAllCPUs",
-                        "runPostTest",
-                        "updatePackages",
-                        "addSoftLinks",
-                    ]
-                    else value
-                )
-            elif isinstance(getattr(ScriptData, field_name, None), bool) or field_name in [
-                "installOSPackages",
-                "enableSpeedOptimization",
-                "enableSharedLibraries",
-                "useAllCPUs",
-                "runPostTest",
-                "updatePackages",
-                "addSoftLinks",
-            ]:
-                processed_data[field_name] = False
-            else:
-                # Use default value for other fields
-                processed_data[field_name] = getattr(ScriptData, field_name)
+        try:
+            script_data = msgspec.convert(data_dict, type=ScriptData)
+        except msgspec.ValidationError as e:
+            raise ValidationException(str(e)) from e
 
-        script_data = ScriptData(**processed_data)
         script_content = request.app.template_engine.get_template("partials/script.html").render(
             script_data=script_data
         )
-
-        # Apply Pygments highlighting
         highlighted_script_with_lines = highlight(
             script_content, BashLexer(), HtmlFormatter(linenos=True, cssclass="source")
         )
@@ -106,5 +90,6 @@ class CoreController(Controller):
                 "highlighted_script": highlighted_script_with_lines,
                 "highlighted_script_for_copy": highlighted_script_for_copy,
                 "pygments_css": pygments_css,
+                "script_data": script_data,
             },
         )

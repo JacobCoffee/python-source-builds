@@ -35,3 +35,5 @@ class ScriptData(msgspec.Struct):
     runPostTest: bool = False
     updatePackages: bool = False
     addSoftLinks: bool = False
+    disableGIL: bool = False
+    enableJIT: bool = False
