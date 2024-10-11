@@ -39,13 +39,14 @@ class CoreController(Controller):
         return await get_versions_from_db()
 
     @post("/api/generate-script")
-    async def generate_script(self, request: Request, script_data: ScriptData) -> HTMXTemplate :
+    async def generate_script(self, request: Request, script_data: ScriptData | None = None) -> HTMXTemplate:
         """Generate a script based on the provided data and apply Pygments highlighting.
 
         TODO: use multipart body instead of raw dogging the request and parsing...
 
         Args:
             request (Request): The incoming request.
+            script_data (ScriptData, optional): Placeholder to render OpenAPI
 
         Returns:
             HTMXTemplate: The highlighted script.

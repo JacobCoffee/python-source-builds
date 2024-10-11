@@ -35,9 +35,15 @@
   <body class="h-full flex flex-col">
     <div class="flex-grow">
       <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8 flex items-center">
-          <img src="/static/pylogo.svg" alt="Python Logo" class="h-12 w-auto mr-4" />
-          <h1 class="text-3xl font-bold text-gray-900">Custom Python from source</h1>
+        <div class="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          <div class="flex items-center">
+            <img src="/static/pylogo.svg" alt="Python Logo" class="h-12 w-auto mr-4" />
+            <h1 class="text-3xl font-bold text-gray-900">Custom Python from source</h1>
+          </div>
+          <nav class="flex items-center space-x-4">
+            <a href="/docs" class="bg-primary hover:bg-primary text-white font-bold py-2 px-4 rounded">Docs</a>
+            <a href="/api" class="bg-primary hover:bg-primary text-white font-bold py-2 px-4 rounded">API</a>
+          </nav>
         </div>
       </header>
 
@@ -171,14 +177,12 @@
                         <input
                           type="checkbox"
                           id="selectAll"
-                          class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary"
-                        />
+                          class="form-checkbox h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary" />
                         <span class="ml-2 text-sm text-gray-900">Select All</span>
                       </label>
                       <button
                         type="submit"
-                        class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded"
-                      >
+                        class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded">
                         Generate Script
                       </button>
                     </div>
@@ -272,22 +276,22 @@
     </script>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const selectAllCheckbox = document.getElementById('selectAll');
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#selectAll)');
+      document.addEventListener("DOMContentLoaded", function () {
+        const selectAllCheckbox = document.getElementById("selectAll")
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#selectAll)')
 
-        selectAllCheckbox.addEventListener('change', function() {
+        selectAllCheckbox.addEventListener("change", function () {
           checkboxes.forEach(checkbox => {
-            checkbox.checked = selectAllCheckbox.checked;
-          });
-        });
+            checkbox.checked = selectAllCheckbox.checked
+          })
+        })
 
         checkboxes.forEach(checkbox => {
-          checkbox.addEventListener('change', function() {
-            selectAllCheckbox.checked = Array.from(checkboxes).every(cb => cb.checked);
-          });
-        });
-      });
+          checkbox.addEventListener("change", function () {
+            selectAllCheckbox.checked = Array.from(checkboxes).every(cb => cb.checked)
+          })
+        })
+      })
     </script>
   </body>
 </html>

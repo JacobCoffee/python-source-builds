@@ -1,46 +1,24 @@
-#!/bin/bash
-
-{% if script_data.installOSPackages %}
-# Install required OS packages
-sudo apt-get update && sudo apt-get install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
-{% endif %}
-
-cd /tmp/
-wget https://www.python.org/ftp/python/{{ script_data.selectedVersion }}/Python-{{ script_data.selectedVersion }}.tgz
-tar xzf Python-{{ script_data.selectedVersion }}.tgz
-cd Python-{{ script_data.selectedVersion }}
-
-sudo ./configure --prefix={{ script_data.prefixPath }}{{ script_data.selectedVersion }} \
-    {% if script_data.enableSpeedOptimization %}--enable-optimizations --with-lto \
-    --with-computed-gotos --with-system-ffi{% endif %} {% if script_data.enableSharedLibraries %}--enable-shared{% endif %}
-
-{% if script_data.useAllCPUs %}
-# Use all CPUs
-sudo make -j "$(nproc)"
-{% else %}
-sudo make
-{% endif %}
-
-{% if script_data.runPostTest %}
-# Run tests
-sudo ./python{{ script_data.selectedVersion }} -m test
-{% endif %}
-
-sudo make altinstall
-sudo rm /tmp/Python-{{ script_data.selectedVersion }}.tgz
-
-{% if script_data.updatePackages %}
-# Update seed packages
-sudo {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/python{{ script_data.selectedVersion }} -m pip install --upgrade pip setuptools wheel
-{% endif %}
-
-{% if script_data.addSoftLinks %}
-# Add soft links
-sudo ln -s {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/python{{ script_data.selectedVersion }} {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/python3
-sudo ln -s {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/python{{ script_data.selectedVersion }} {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/python
-sudo ln -s {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/pip{{ script_data.selectedVersion }} {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/pip3
-sudo ln -s {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/pip{{ script_data.selectedVersion }} {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/pip
-sudo ln -s {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/pydoc{{ script_data.selectedVersion }} {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/pydoc
-sudo ln -s {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/idle{{ script_data.selectedVersion }} {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/idle
-sudo ln -s {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/python{{ script_data.selectedVersion }}-config {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/python-config
-{% endif %}
+#!/bin/bash {% if script_data.installOSPackages %} # Install required OS packages sudo apt-get update && sudo apt-get
+install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev {%
+endif %} cd /tmp/ wget https://www.python.org/ftp/python/{{ script_data.selectedVersion }}/Python-{{
+script_data.selectedVersion }}.tgz tar xzf Python-{{ script_data.selectedVersion }}.tgz cd Python-{{
+script_data.selectedVersion }} sudo ./configure --prefix={{ script_data.prefixPath }}{{ script_data.selectedVersion }} \
+{% if script_data.enableSpeedOptimization %}--enable-optimizations --with-lto \ --with-computed-gotos
+--with-system-ffi{% endif %} {% if script_data.enableSharedLibraries %}--enable-shared{% endif %} {% if
+script_data.useAllCPUs %} # Use all CPUs sudo make -j "$(nproc)" {% else %} sudo make {% endif %} {% if
+script_data.runPostTest %} # Run tests sudo ./python{{ script_data.selectedVersion }} -m test {% endif %} sudo make
+altinstall sudo rm /tmp/Python-{{ script_data.selectedVersion }}.tgz {% if script_data.updatePackages %} # Update seed
+packages sudo {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/python{{ script_data.selectedVersion }}
+-m pip install --upgrade pip setuptools wheel {% endif %} {% if script_data.addSoftLinks %} # Add soft links sudo ln -s
+{{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/python{{ script_data.selectedVersion }} {{
+script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/python3 sudo ln -s {{ script_data.prefixPath }}{{
+script_data.selectedVersion }}/bin/python{{ script_data.selectedVersion }} {{ script_data.prefixPath }}{{
+script_data.selectedVersion }}/bin/python sudo ln -s {{ script_data.prefixPath }}{{ script_data.selectedVersion
+}}/bin/pip{{ script_data.selectedVersion }} {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/pip3 sudo
+ln -s {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/pip{{ script_data.selectedVersion }} {{
+script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/pip sudo ln -s {{ script_data.prefixPath }}{{
+script_data.selectedVersion }}/bin/pydoc{{ script_data.selectedVersion }} {{ script_data.prefixPath }}{{
+script_data.selectedVersion }}/bin/pydoc sudo ln -s {{ script_data.prefixPath }}{{ script_data.selectedVersion
+}}/bin/idle{{ script_data.selectedVersion }} {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/idle sudo
+ln -s {{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/python{{ script_data.selectedVersion }}-config
+{{ script_data.prefixPath }}{{ script_data.selectedVersion }}/bin/python-config {% endif %}

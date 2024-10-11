@@ -23,7 +23,7 @@ export default {
       colors: {
         "primary": "#4584b6",
         "secondary": "#ffde57",
-        "tertiary": "646464",
+        "tertiary": "#646464",
       },
       borderRadius: {
         "4xl": "2rem",
