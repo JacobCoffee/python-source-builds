@@ -1,6 +1,0 @@
-*.min.*
-.git/COMMIT_EDITMSG
-.mypy_cache/
-.venv/
-_build/
-script.html

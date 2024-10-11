@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="blue" data-content_root="../../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>app.config.settings - Docs</title><link rel="shortcut icon" href="../../../_static/badge.svg"/><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/shibuya.css?v=36d120a7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=86a5d47e" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="app.config.settings"/>
+<meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="announcement">
+    <div class="announcement-inner">
+      <p>This documentation is currently under development.</p>
+      <button class="announcement-close" aria-label="Close announcement">
+        <i class="i-lucide close"></i>
+      </button>
+    </div>
+  </div><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../../_static/badge.svg" alt="python-source-builder" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../../_static/badge.svg" alt="python-source-builder" height="28" loading="lazy" />
+      <strong>python-source-builder</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../../.html">Dashboard</a></li><li class="link">
+          <a href="https://github.com/sponsors/JacobCoffee">
+            <span>Sponsor me</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials">
+  <a href="https://github.com/JacobCoffee/python-source-builds" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+<a href="https://twitter.com/_scriptr" aria-label="X (Twitter)">
+  <iconify-icon icon="prime:twitter"></iconify-icon>
+</a></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../web/usage/index.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../web/usage/server.html">About the Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../web/usage/starting.html">Starting Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web/api/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../web/api/app.html">app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../web/api/metadata.html">metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../web/api/utils.html">utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../web/api/core/index.html">applets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../web/api/core/controller.html">controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../web/api/core/helpers.html">helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../web/api/core/schemas.html">schemas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../web/api/config/index.html">config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../web/api/config/app.html">app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../web/api/config/routes.html">routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../web/api/config/settings.html">settings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribution-guide.html">Contribution guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div></div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/JacobCoffee/python-source-builds"
+  data-type="github" data-user="JacobCoffee" data-repo="python-source-builds">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </span>
+  <span class="flex-grow px-2 break-all">
+    <span>JacobCoffee/python-source-builds</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <iconify-icon icon="lucide:star"></iconify-icon>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <iconify-icon icon="lucide:git-fork"></iconify-icon>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6"><div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../../index.html"><span itemprop="name">python-source-builder</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html"><span itemprop="name">Module code</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">app.config.settings</strong>
+        <meta itemprop="position" content="3" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <h1>Source code for app.config.settings</h1><div class="highlight"><pre>
+<span></span><span data-line="1"><span class="sd">&quot;&quot;&quot;Application settings.</span>
+</span><span data-line="2">
+</span><span data-line="3"><span class="sd">Secrets are consumed from env vars.</span>
+</span><span data-line="4"><span class="sd">&quot;&quot;&quot;</span>
+</span><span data-line="5">
+</span><span data-line="6"><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+</span><span data-line="7">
+</span><span data-line="8"><span class="kn">import</span> <span class="nn">binascii</span>
+</span><span data-line="9"><span class="kn">import</span> <span class="nn">os</span>
+</span><span data-line="10"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+</span><span data-line="11"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+</span><span data-line="12"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span><span data-line="13"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Final</span>
+</span><span data-line="14">
+</span><span data-line="15"><span class="kn">from</span> <span class="nn">litestar.contrib.jinja</span> <span class="kn">import</span> <span class="n">JinjaTemplateEngine</span>
+</span><span data-line="16"><span class="kn">from</span> <span class="nn">litestar.utils.module_loader</span> <span class="kn">import</span> <span class="n">module_to_os_path</span>
+</span><span data-line="17">
+</span><span data-line="18"><span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+</span><span data-line="19">    <span class="kn">from</span> <span class="nn">litestar.data_extractors</span> <span class="kn">import</span> <span class="n">RequestExtractorField</span><span class="p">,</span> <span class="n">ResponseExtractorField</span>
+</span><span data-line="20">
+</span><span data-line="21"><span class="n">DEFAULT_MODULE_NAME</span> <span class="o">=</span> <span class="s2">&quot;app&quot;</span>
+</span><span data-line="22"><span class="n">BASE_DIR</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="n">module_to_os_path</span><span class="p">(</span><span class="n">DEFAULT_MODULE_NAME</span><span class="p">)</span>
+</span><span data-line="23">
+</span><span data-line="24"><span class="n">TRUE_VALUES</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;True&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">}</span>
+</span><span data-line="25">
+</span><span data-line="26">
+<div class="viewcode-block" id="ViteSettings">
+<a class="viewcode-back" href="../../../web/api/config/settings.html#app.config.settings.ViteSettings">[docs]</a>
+</span><span data-line="27"><span class="nd">@dataclass</span>
+</span><span data-line="28"><span class="k">class</span> <span class="nc">ViteSettings</span><span class="p">:</span>
+</span><span data-line="29"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Server configurations.&quot;&quot;&quot;</span>
+</span><span data-line="30">
+</span><span data-line="31">    <span class="n">DEV_MODE</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+</span><span data-line="32">        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;VITE_DEV_MODE&quot;</span><span class="p">,</span> <span class="s2">&quot;False&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">TRUE_VALUES</span><span class="p">,</span>
+</span><span data-line="33">    <span class="p">)</span>
+</span><span data-line="34"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Start ``vite`` development server.&quot;&quot;&quot;</span>
+</span><span data-line="35">    <span class="n">USE_SERVER_LIFESPAN</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+</span><span data-line="36">        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;VITE_USE_SERVER_LIFESPAN&quot;</span><span class="p">,</span> <span class="s2">&quot;True&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">TRUE_VALUES</span><span class="p">,</span>
+</span><span data-line="37">    <span class="p">)</span>
+</span><span data-line="38"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Auto start and stop ``vite`` processes when running in development mode..&quot;&quot;&quot;</span>
+</span><span data-line="39">    <span class="n">HOST</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;VITE_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;0.0.0.0&quot;</span><span class="p">))</span>  <span class="c1"># noqa: S104</span>
+</span><span data-line="40"><span class="w">    </span><span class="sd">&quot;&quot;&quot;The host the ``vite`` process will listen on.  Defaults to ``0.0.0.0``&quot;&quot;&quot;</span>
+</span><span data-line="41">    <span class="n">PORT</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;VITE_PORT&quot;</span><span class="p">,</span> <span class="s2">&quot;5173&quot;</span><span class="p">)))</span>
+</span><span data-line="42"><span class="w">    </span><span class="sd">&quot;&quot;&quot;The port to start vite on.  Default to ``5173``&quot;&quot;&quot;</span>
+</span><span data-line="43">    <span class="n">HOT_RELOAD</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+</span><span data-line="44">        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;VITE_HOT_RELOAD&quot;</span><span class="p">,</span> <span class="s2">&quot;True&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">TRUE_VALUES</span><span class="p">,</span>
+</span><span data-line="45">    <span class="p">)</span>
+</span><span data-line="46"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Start ``vite`` with HMR enabled.&quot;&quot;&quot;</span>
+</span><span data-line="47">    <span class="n">ENABLE_REACT_HELPERS</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+</span><span data-line="48">        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;VITE_ENABLE_REACT_HELPERS&quot;</span><span class="p">,</span> <span class="s2">&quot;True&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">TRUE_VALUES</span><span class="p">,</span>
+</span><span data-line="49">    <span class="p">)</span>
+</span><span data-line="50"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Enable React support in HMR.&quot;&quot;&quot;</span>
+</span><span data-line="51">    <span class="n">BUNDLE_DIR</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_DIR</span><span class="si">}</span><span class="s2">/applets/core/public&quot;</span><span class="p">))</span>
+</span><span data-line="52"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Bundle directory&quot;&quot;&quot;</span>
+</span><span data-line="53">    <span class="n">RESOURCE_DIR</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;resources&quot;</span><span class="p">))</span>
+</span><span data-line="54"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Resource directory&quot;&quot;&quot;</span>
+</span><span data-line="55">    <span class="n">TEMPLATE_DIR</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_DIR</span><span class="si">}</span><span class="s2">/applets/core/templates&quot;</span><span class="p">))</span>
+</span><span data-line="56"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Template directory.&quot;&quot;&quot;</span>
+</span><span data-line="57">    <span class="n">ASSET_URL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;ASSET_URL&quot;</span><span class="p">,</span> <span class="s2">&quot;/static/&quot;</span><span class="p">))</span>
+</span><span data-line="58"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Base URL for assets&quot;&quot;&quot;</span>
+</span><span data-line="59">
+</span><span data-line="60">    <span class="nd">@property</span>
+</span><span data-line="61">    <span class="k">def</span> <span class="nf">set_static_files</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span data-line="62"><span class="w">        </span><span class="sd">&quot;&quot;&quot;Serve static assets.</span>
+</span><span data-line="63">
+</span><span data-line="64"><span class="sd">        Returns:</span>
+</span><span data-line="65"><span class="sd">            bool: True if the asset URL is a relative path.</span>
+</span><span data-line="66"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span data-line="67">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ASSET_URL</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span></div>
+
+</span><span data-line="68">
+</span><span data-line="69">
+<div class="viewcode-block" id="ServerSettings">
+<a class="viewcode-back" href="../../../web/api/config/settings.html#app.config.settings.ServerSettings">[docs]</a>
+</span><span data-line="70"><span class="nd">@dataclass</span>
+</span><span data-line="71"><span class="k">class</span> <span class="nc">ServerSettings</span><span class="p">:</span>
+</span><span data-line="72"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Server configurations.&quot;&quot;&quot;</span>
+</span><span data-line="73">
+</span><span data-line="74">    <span class="n">APP_LOC</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;app.asgi:app&quot;</span>
+</span><span data-line="75"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Path to app executable, or factory.&quot;&quot;&quot;</span>
+</span><span data-line="76">    <span class="n">APP_LOC_IS_FACTORY</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span data-line="77"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Indicate if APP_LOC points to an executable or factory.&quot;&quot;&quot;</span>
+</span><span data-line="78">    <span class="n">HOST</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;LITESTAR_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;0.0.0.0&quot;</span><span class="p">))</span>  <span class="c1"># noqa: S104</span>
+</span><span data-line="79"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Server network host.&quot;&quot;&quot;</span>
+</span><span data-line="80">    <span class="n">PORT</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;LITESTAR_PORT&quot;</span><span class="p">,</span> <span class="s2">&quot;8000&quot;</span><span class="p">)))</span>
+</span><span data-line="81"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Server port.&quot;&quot;&quot;</span>
+</span><span data-line="82">    <span class="n">KEEPALIVE</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;LITESTAR_KEEPALIVE&quot;</span><span class="p">,</span> <span class="s2">&quot;65&quot;</span><span class="p">)))</span>
+</span><span data-line="83"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Seconds to hold connections open (65 is &gt; AWS lb idle timeout).&quot;&quot;&quot;</span>
+</span><span data-line="84">    <span class="n">RELOAD</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+</span><span data-line="85">        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;LITESTAR_RELOAD&quot;</span><span class="p">,</span> <span class="s2">&quot;False&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">TRUE_VALUES</span><span class="p">,</span>
+</span><span data-line="86">    <span class="p">)</span>
+</span><span data-line="87"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Turn on hot reloading.&quot;&quot;&quot;</span>
+</span><span data-line="88">    <span class="n">RELOAD_DIRS</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_DIR</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">])</span>
+</span><span data-line="89"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Directories to watch for reloading.&quot;&quot;&quot;</span>
+</span><span data-line="90">    <span class="n">HTTP_WORKERS</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+</span><span data-line="91">        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;WEB_CONCURRENCY&quot;</span><span class="p">))</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;WEB_CONCURRENCY&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+</span><span data-line="92">        <span class="c1"># type: ignore[arg-type]</span>
+</span><span data-line="93">    <span class="p">)</span>
+</span><span data-line="94"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Number of HTTP Worker processes to be spawned by Uvicorn.&quot;&quot;&quot;</span></div>
+
+</span><span data-line="95">
+</span><span data-line="96">
+<div class="viewcode-block" id="LogSettings">
+<a class="viewcode-back" href="../../../web/api/config/settings.html#app.config.settings.LogSettings">[docs]</a>
+</span><span data-line="97"><span class="nd">@dataclass</span>
+</span><span data-line="98"><span class="k">class</span> <span class="nc">LogSettings</span><span class="p">:</span>
+</span><span data-line="99"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Logger configuration.&quot;&quot;&quot;</span>
+</span><span data-line="100">
+</span><span data-line="101">    <span class="c1"># https://stackoverflow.com/a/1845097/6560549</span>
+</span><span data-line="102">    <span class="n">EXCLUDE_PATHS</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\A(?!x)x&quot;</span>
+</span><span data-line="103"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Regex to exclude paths from logging.&quot;&quot;&quot;</span>
+</span><span data-line="104">    <span class="n">HTTP_EVENT</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;HTTP&quot;</span>
+</span><span data-line="105"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Log event name for logs from Litestar handlers.&quot;&quot;&quot;</span>
+</span><span data-line="106">    <span class="n">INCLUDE_COMPRESSED_BODY</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span data-line="107"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Include ``body`` of compressed responses in log output.&quot;&quot;&quot;</span>
+</span><span data-line="108">    <span class="n">LEVEL</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;LOG_LEVEL&quot;</span><span class="p">,</span> <span class="s2">&quot;10&quot;</span><span class="p">)))</span>
+</span><span data-line="109"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Stdlib log levels.</span>
+</span><span data-line="110">
+</span><span data-line="111"><span class="sd">    Only emit logs at this level, or higher.</span>
+</span><span data-line="112"><span class="sd">    &quot;&quot;&quot;</span>
+</span><span data-line="113">    <span class="n">OBFUSCATE_COOKIES</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;session&quot;</span><span class="p">})</span>
+</span><span data-line="114"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Request cookie keys to obfuscate.&quot;&quot;&quot;</span>
+</span><span data-line="115">    <span class="n">OBFUSCATE_HEADERS</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">,</span> <span class="s2">&quot;X-API-KEY&quot;</span><span class="p">})</span>
+</span><span data-line="116"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Request header keys to obfuscate.&quot;&quot;&quot;</span>
+</span><span data-line="117">    <span class="n">REQUEST_FIELDS</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RequestExtractorField</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+</span><span data-line="118">        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span>
+</span><span data-line="119">            <span class="s2">&quot;path&quot;</span><span class="p">,</span>
+</span><span data-line="120">            <span class="s2">&quot;method&quot;</span><span class="p">,</span>
+</span><span data-line="121">            <span class="s2">&quot;headers&quot;</span><span class="p">,</span>
+</span><span data-line="122">            <span class="s2">&quot;cookies&quot;</span><span class="p">,</span>
+</span><span data-line="123">            <span class="s2">&quot;query&quot;</span><span class="p">,</span>
+</span><span data-line="124">            <span class="s2">&quot;path_params&quot;</span><span class="p">,</span>
+</span><span data-line="125">            <span class="s2">&quot;body&quot;</span><span class="p">,</span>
+</span><span data-line="126">        <span class="p">],</span>
+</span><span data-line="127">    <span class="p">)</span>
+</span><span data-line="128"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Attributes of the `~litestar.connection.request.Request`_ to be logged.&quot;&quot;&quot;</span>
+</span><span data-line="129">    <span class="n">RESPONSE_FIELDS</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ResponseExtractorField</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+</span><span data-line="130">        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span>
+</span><span data-line="131">            <span class="s2">&quot;status_code&quot;</span><span class="p">,</span>
+</span><span data-line="132">            <span class="s2">&quot;cookies&quot;</span><span class="p">,</span>
+</span><span data-line="133">            <span class="s2">&quot;headers&quot;</span><span class="p">,</span>
+</span><span data-line="134">            <span class="s2">&quot;body&quot;</span><span class="p">,</span>
+</span><span data-line="135">        <span class="p">],</span>
+</span><span data-line="136">    <span class="p">)</span>
+</span><span data-line="137"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Attributes of the `~litestar.response.Response`_ to be logged.&quot;&quot;&quot;</span>
+</span><span data-line="138">    <span class="n">GRANIAN_ACCESS_LEVEL</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span>
+</span><span data-line="139"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Level to log uvicorn access logs.&quot;&quot;&quot;</span>
+</span><span data-line="140">    <span class="n">GRANIAN_ERROR_LEVEL</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
+</span><span data-line="141"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Level to log uvicorn error logs.&quot;&quot;&quot;</span></div>
+
+</span><span data-line="142">
+</span><span data-line="143">
+<div class="viewcode-block" id="AppSettings">
+<a class="viewcode-back" href="../../../web/api/config/settings.html#app.config.settings.AppSettings">[docs]</a>
+</span><span data-line="144"><span class="nd">@dataclass</span>
+</span><span data-line="145"><span class="k">class</span> <span class="nc">AppSettings</span><span class="p">:</span>
+</span><span data-line="146"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Application configuration.&quot;&quot;&quot;</span>
+</span><span data-line="147">
+</span><span data-line="148">    <span class="n">URL</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;APP_URL&quot;</span><span class="p">,</span> <span class="s2">&quot;http://localhost:8000&quot;</span><span class="p">))</span>
+</span><span data-line="149"><span class="w">    </span><span class="sd">&quot;&quot;&quot;The frontend base URL&quot;&quot;&quot;</span>
+</span><span data-line="150">    <span class="n">DEBUG</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;LITESTAR_DEBUG&quot;</span><span class="p">,</span> <span class="s2">&quot;False&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">TRUE_VALUES</span><span class="p">)</span>
+</span><span data-line="151"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Run ``Litestar`` with ``debug=True``.&quot;&quot;&quot;</span>
+</span><span data-line="152">    <span class="n">SECRET_KEY</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+</span><span data-line="153">        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SECRET_KEY&quot;</span><span class="p">,</span> <span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)),</span>
+</span><span data-line="154">    <span class="p">)</span>
+</span><span data-line="155"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Application secret key.&quot;&quot;&quot;</span>
+</span><span data-line="156">    <span class="n">NAME</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="s2">&quot;python-source-builder&quot;</span><span class="p">)</span>
+</span><span data-line="157"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Application name.&quot;&quot;&quot;</span></div>
+
+</span><span data-line="158">
+</span><span data-line="159">
+<div class="viewcode-block" id="TemplateSettings">
+<a class="viewcode-back" href="../../../web/api/config/settings.html#app.config.settings.TemplateSettings">[docs]</a>
+</span><span data-line="160"><span class="nd">@dataclass</span>
+</span><span data-line="161"><span class="k">class</span> <span class="nc">TemplateSettings</span><span class="p">:</span>
+</span><span data-line="162"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Configures Templating for the project.&quot;&quot;&quot;</span>
+</span><span data-line="163">
+</span><span data-line="164">    <span class="n">ENGINE</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">JinjaTemplateEngine</span><span class="p">]</span> <span class="o">=</span> <span class="n">JinjaTemplateEngine</span>
+</span><span data-line="165"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Template engine to use. (Jinja2 or Mako)&quot;&quot;&quot;</span></div>
+
+</span><span data-line="166">
+</span><span data-line="167">
+<div class="viewcode-block" id="Settings">
+<a class="viewcode-back" href="../../../web/api/config/settings.html#app.config.settings.Settings">[docs]</a>
+</span><span data-line="168"><span class="nd">@dataclass</span>
+</span><span data-line="169"><span class="k">class</span> <span class="nc">Settings</span><span class="p">:</span>
+</span><span data-line="170"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Application settings.&quot;&quot;&quot;</span>
+</span><span data-line="171">
+</span><span data-line="172">    <span class="n">app</span><span class="p">:</span> <span class="n">AppSettings</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">AppSettings</span><span class="p">)</span>
+</span><span data-line="173">    <span class="n">template</span><span class="p">:</span> <span class="n">TemplateSettings</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">TemplateSettings</span><span class="p">)</span>
+</span><span data-line="174">    <span class="n">vite</span><span class="p">:</span> <span class="n">ViteSettings</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">ViteSettings</span><span class="p">)</span>
+</span><span data-line="175">    <span class="n">server</span><span class="p">:</span> <span class="n">ServerSettings</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">ServerSettings</span><span class="p">)</span>
+</span><span data-line="176">    <span class="n">log</span><span class="p">:</span> <span class="n">LogSettings</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">LogSettings</span><span class="p">)</span>
+</span><span data-line="177">
+<div class="viewcode-block" id="Settings.from_env">
+<a class="viewcode-back" href="../../../web/api/config/settings.html#app.config.settings.Settings.from_env">[docs]</a>
+</span><span data-line="178">    <span class="nd">@classmethod</span>
+</span><span data-line="179">    <span class="k">def</span> <span class="nf">from_env</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">dotenv_filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.env&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Settings</span><span class="p">:</span>
+</span><span data-line="180"><span class="w">        </span><span class="sd">&quot;&quot;&quot;Load settings from environment variables.</span>
+</span><span data-line="181">
+</span><span data-line="182"><span class="sd">        Args:</span>
+</span><span data-line="183"><span class="sd">            dotenv_filename (str): The name of the dotenv file to load.</span>
+</span><span data-line="184"><span class="sd">                Assumes ``curdir`` but can pass the rest of the path.</span>
+</span><span data-line="185">
+</span><span data-line="186"><span class="sd">        Returns:</span>
+</span><span data-line="187"><span class="sd">            Settings: Application settings</span>
+</span><span data-line="188"><span class="sd">        &quot;&quot;&quot;</span>
+</span><span data-line="189">        <span class="c1"># noinspection PyProtectedMember</span>
+</span><span data-line="190">        <span class="kn">from</span> <span class="nn">litestar.cli._utils</span> <span class="kn">import</span> <span class="n">console</span>
+</span><span data-line="191">
+</span><span data-line="192">        <span class="n">env_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">dotenv_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span data-line="193">        <span class="k">if</span> <span class="n">env_file</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+</span><span data-line="194">            <span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+</span><span data-line="195">
+</span><span data-line="196">            <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[yellow]Loading environment configuration from </span><span class="si">{</span><span class="n">dotenv_filename</span><span class="si">}</span><span class="s2">[/]&quot;</span><span class="p">)</span>
+</span><span data-line="197">
+</span><span data-line="198">            <span class="n">load_dotenv</span><span class="p">(</span><span class="n">env_file</span><span class="p">,</span> <span class="n">override</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span data-line="199">        <span class="k">return</span> <span class="n">Settings</span><span class="p">()</span></div>
+</div>
+
+</span><span data-line="200">
+</span><span data-line="201">
+<div class="viewcode-block" id="get_settings">
+<a class="viewcode-back" href="../../../web/api/config/settings.html#app.config.settings.get_settings">[docs]</a>
+</span><span data-line="202"><span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">typed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span data-line="203"><span class="k">def</span> <span class="nf">get_settings</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Settings</span><span class="p">:</span>
+</span><span data-line="204"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper function to get settings from elsewhere.</span>
+</span><span data-line="205">
+</span><span data-line="206"><span class="sd">    Returns:</span>
+</span><span data-line="207"><span class="sd">        Settings: Application settings</span>
+</span><span data-line="208"><span class="sd">    &quot;&quot;&quot;</span>
+</span><span data-line="209">    <span class="k">return</span> <span class="n">Settings</span><span class="o">.</span><span class="n">from_env</span><span class="p">()</span></div>
+
+</span></pre></div>
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024 Jacob Coffee</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+<a href="https://github.com/JacobCoffee/python-source-builds" aria-label="GitHub">
+  <iconify-icon icon="simple-icons:github"></iconify-icon>
+</a>
+<a href="https://twitter.com/_scriptr" aria-label="X (Twitter)">
+  <iconify-icon icon="prime:twitter"></iconify-icon>
+</a>
+<a href="https://youtube.com/@monorepo" aria-label="YouTube">
+  <iconify-icon icon="simple-icons:youtube"></iconify-icon>
+</a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/shibuya.js?v=c5fc9e80"></script></body>
+</html>

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="blue" data-content_root="../../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>settings - Docs</title><link rel="shortcut icon" href="../../../_static/badge.svg"/><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Contribution guide" href="../../../contribution-guide.html" /><link rel="prev" title="routes" href="routes.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/shibuya.css?v=36d120a7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=86a5d47e" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="settings"/>
+<meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="announcement">
+    <div class="announcement-inner">
+      <p>This documentation is currently under development.</p>
+      <button class="announcement-close" aria-label="Close announcement">
+        <i class="i-lucide close"></i>
+      </button>
+    </div>
+  </div><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../../_static/badge.svg" alt="python-source-builder" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../../_static/badge.svg" alt="python-source-builder" height="28" loading="lazy" />
+      <strong>python-source-builder</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../../.html">Dashboard</a></li><li class="link">
+          <a href="https://github.com/sponsors/JacobCoffee">
+            <span>Sponsor me</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials">
+  <a href="https://github.com/JacobCoffee/python-source-builds" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a>
+<a href="https://twitter.com/_scriptr" aria-label="X (Twitter)">
+  <iconify-icon icon="prime:twitter"></iconify-icon>
+</a></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Docs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usage/index.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usage/server.html">About the Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage/starting.html">Starting Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../app.html">app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata.html">metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils.html">utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core/index.html">applets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../core/controller.html">controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../core/helpers.html">helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../core/schemas.html">schemas</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">config</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="app.html">app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="routes.html">routes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">settings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribution-guide.html">Contribution guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div></div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings"><code class="docutils literal notranslate"><span class="pre">ViteSettings</span></code></a><ul>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings.DEV_MODE"><code class="docutils literal notranslate">DEV_MODE</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings.USE_SERVER_LIFESPAN"><code class="docutils literal notranslate">USE_SERVER_LIFESPAN</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings.HOST"><code class="docutils literal notranslate">HOST</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings.PORT"><code class="docutils literal notranslate">PORT</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings.HOT_RELOAD"><code class="docutils literal notranslate">HOT_RELOAD</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings.ENABLE_REACT_HELPERS"><code class="docutils literal notranslate">ENABLE_REACT_HELPERS</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings.BUNDLE_DIR"><code class="docutils literal notranslate">BUNDLE_DIR</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings.RESOURCE_DIR"><code class="docutils literal notranslate">RESOURCE_DIR</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings.TEMPLATE_DIR"><code class="docutils literal notranslate">TEMPLATE_DIR</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings.ASSET_URL"><code class="docutils literal notranslate">ASSET_URL</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings.set_static_files"><code class="docutils literal notranslate">set_static_files</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ViteSettings.__init__"><code class="docutils literal notranslate">__init__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#app.config.settings.ServerSettings"><code class="docutils literal notranslate"><span class="pre">ServerSettings</span></code></a><ul>
+<li><a class="reference internal" href="#app.config.settings.ServerSettings.APP_LOC"><code class="docutils literal notranslate">APP_LOC</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ServerSettings.APP_LOC_IS_FACTORY"><code class="docutils literal notranslate">APP_LOC_IS_FACTORY</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ServerSettings.HOST"><code class="docutils literal notranslate">HOST</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ServerSettings.PORT"><code class="docutils literal notranslate">PORT</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ServerSettings.KEEPALIVE"><code class="docutils literal notranslate">KEEPALIVE</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ServerSettings.RELOAD"><code class="docutils literal notranslate">RELOAD</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ServerSettings.RELOAD_DIRS"><code class="docutils literal notranslate">RELOAD_DIRS</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ServerSettings.HTTP_WORKERS"><code class="docutils literal notranslate">HTTP_WORKERS</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.ServerSettings.__init__"><code class="docutils literal notranslate">__init__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#app.config.settings.LogSettings"><code class="docutils literal notranslate"><span class="pre">LogSettings</span></code></a><ul>
+<li><a class="reference internal" href="#app.config.settings.LogSettings.EXCLUDE_PATHS"><code class="docutils literal notranslate">EXCLUDE_PATHS</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.LogSettings.HTTP_EVENT"><code class="docutils literal notranslate">HTTP_EVENT</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.LogSettings.INCLUDE_COMPRESSED_BODY"><code class="docutils literal notranslate">INCLUDE_COMPRESSED_BODY</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.LogSettings.__init__"><code class="docutils literal notranslate">__init__()</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.LogSettings.LEVEL"><code class="docutils literal notranslate">LEVEL</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.LogSettings.OBFUSCATE_COOKIES"><code class="docutils literal notranslate">OBFUSCATE_COOKIES</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.LogSettings.OBFUSCATE_HEADERS"><code class="docutils literal notranslate">OBFUSCATE_HEADERS</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.LogSettings.REQUEST_FIELDS"><code class="docutils literal notranslate">REQUEST_FIELDS</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.LogSettings.RESPONSE_FIELDS"><code class="docutils literal notranslate">RESPONSE_FIELDS</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.LogSettings.GRANIAN_ACCESS_LEVEL"><code class="docutils literal notranslate">GRANIAN_ACCESS_LEVEL</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.LogSettings.GRANIAN_ERROR_LEVEL"><code class="docutils literal notranslate">GRANIAN_ERROR_LEVEL</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#app.config.settings.AppSettings"><code class="docutils literal notranslate"><span class="pre">AppSettings</span></code></a><ul>
+<li><a class="reference internal" href="#app.config.settings.AppSettings.__init__"><code class="docutils literal notranslate">__init__()</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.AppSettings.URL"><code class="docutils literal notranslate">URL</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.AppSettings.DEBUG"><code class="docutils literal notranslate">DEBUG</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.AppSettings.SECRET_KEY"><code class="docutils literal notranslate">SECRET_KEY</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.AppSettings.NAME"><code class="docutils literal notranslate">NAME</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#app.config.settings.TemplateSettings"><code class="docutils literal notranslate"><span class="pre">TemplateSettings</span></code></a><ul>
+<li><a class="reference internal" href="#app.config.settings.TemplateSettings.__init__"><code class="docutils literal notranslate">__init__()</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.TemplateSettings.ENGINE"><code class="docutils literal notranslate">ENGINE</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#app.config.settings.Settings"><code class="docutils literal notranslate"><span class="pre">Settings</span></code></a><ul>
+<li><a class="reference internal" href="#app.config.settings.Settings.__init__"><code class="docutils literal notranslate">__init__()</span></code></a></li>
+<li><a class="reference internal" href="#app.config.settings.Settings.from_env"><code class="docutils literal notranslate">from_env()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#app.config.settings.get_settings"><code class="docutils literal notranslate"><span class="pre">get_settings()</span></code></a></li>
+</ul>
+</div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/JacobCoffee/python-source-builds"
+  data-type="github" data-user="JacobCoffee" data-repo="python-source-builds">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </span>
+  <span class="flex-grow px-2 break-all">
+    <span>JacobCoffee/python-source-builds</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <iconify-icon icon="lucide:star"></iconify-icon>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <iconify-icon icon="lucide:git-fork"></iconify-icon>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/JacobCoffee/python-source-builds/blob/master/docs/web/api/config/settings.rst">Edit this page</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6"><div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../../index.html"><span itemprop="name">python-source-builder</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">API Reference</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html"><span itemprop="name">config</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="3" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">settings</strong>
+        <meta itemprop="position" content="4" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="settings">
+<h1>settings<a class="headerlink" href="#settings" title="Link to this heading">¶</a></h1>
+<p>Application settings</p>
+<p id="module-app.config.settings">Application settings.</p>
+<p>Secrets are consumed from env vars.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.config.settings.</span></span><span class="sig-name descname"><span class="pre">ViteSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DEV_MODE:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">USE_SERVER_LIFESPAN:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HOST:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PORT:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HOT_RELOAD:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ENABLE_REACT_HELPERS:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BUNDLE_DIR:</span> <span class="pre">~pathlib.Path</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RESOURCE_DIR:</span> <span class="pre">~pathlib.Path</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TEMPLATE_DIR:</span> <span class="pre">~pathlib.Path</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ASSET_URL:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/app/config/settings.html#ViteSettings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.config.settings.ViteSettings" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Server configurations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings.DEV_MODE">
+<span class="sig-name descname"><span class="pre">DEV_MODE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#app.config.settings.ViteSettings.DEV_MODE" title="Link to this definition">¶</a></dt>
+<dd><p>Start <code class="docutils literal notranslate"><span class="pre">vite</span></code> development server.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings.USE_SERVER_LIFESPAN">
+<span class="sig-name descname"><span class="pre">USE_SERVER_LIFESPAN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#app.config.settings.ViteSettings.USE_SERVER_LIFESPAN" title="Link to this definition">¶</a></dt>
+<dd><p>Auto start and stop <code class="docutils literal notranslate"><span class="pre">vite</span></code> processes when running in development mode..</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings.HOST">
+<span class="sig-name descname"><span class="pre">HOST</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#app.config.settings.ViteSettings.HOST" title="Link to this definition">¶</a></dt>
+<dd><p>The host the <code class="docutils literal notranslate"><span class="pre">vite</span></code> process will listen on.  Defaults to <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings.PORT">
+<span class="sig-name descname"><span class="pre">PORT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><a class="headerlink" href="#app.config.settings.ViteSettings.PORT" title="Link to this definition">¶</a></dt>
+<dd><p>The port to start vite on.  Default to <code class="docutils literal notranslate"><span class="pre">5173</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings.HOT_RELOAD">
+<span class="sig-name descname"><span class="pre">HOT_RELOAD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#app.config.settings.ViteSettings.HOT_RELOAD" title="Link to this definition">¶</a></dt>
+<dd><p>Start <code class="docutils literal notranslate"><span class="pre">vite</span></code> with HMR enabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings.ENABLE_REACT_HELPERS">
+<span class="sig-name descname"><span class="pre">ENABLE_REACT_HELPERS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#app.config.settings.ViteSettings.ENABLE_REACT_HELPERS" title="Link to this definition">¶</a></dt>
+<dd><p>Enable React support in HMR.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings.BUNDLE_DIR">
+<span class="sig-name descname"><span class="pre">BUNDLE_DIR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><span class="pre">Path</span></a></em><a class="headerlink" href="#app.config.settings.ViteSettings.BUNDLE_DIR" title="Link to this definition">¶</a></dt>
+<dd><p>Bundle directory</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings.RESOURCE_DIR">
+<span class="sig-name descname"><span class="pre">RESOURCE_DIR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><span class="pre">Path</span></a></em><a class="headerlink" href="#app.config.settings.ViteSettings.RESOURCE_DIR" title="Link to this definition">¶</a></dt>
+<dd><p>Resource directory</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings.TEMPLATE_DIR">
+<span class="sig-name descname"><span class="pre">TEMPLATE_DIR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><span class="pre">Path</span></a></em><a class="headerlink" href="#app.config.settings.ViteSettings.TEMPLATE_DIR" title="Link to this definition">¶</a></dt>
+<dd><p>Template directory.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings.ASSET_URL">
+<span class="sig-name descname"><span class="pre">ASSET_URL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#app.config.settings.ViteSettings.ASSET_URL" title="Link to this definition">¶</a></dt>
+<dd><p>Base URL for assets</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings.set_static_files">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_static_files</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#app.config.settings.ViteSettings.set_static_files" title="Link to this definition">¶</a></dt>
+<dd><p>Serve static assets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the asset URL is a relative path.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.config.settings.ViteSettings.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DEV_MODE:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">USE_SERVER_LIFESPAN:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HOST:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PORT:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HOT_RELOAD:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ENABLE_REACT_HELPERS:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BUNDLE_DIR:</span> <span class="pre">~pathlib.Path</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RESOURCE_DIR:</span> <span class="pre">~pathlib.Path</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TEMPLATE_DIR:</span> <span class="pre">~pathlib.Path</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ASSET_URL:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#app.config.settings.ViteSettings.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.config.settings.ServerSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.config.settings.</span></span><span class="sig-name descname"><span class="pre">ServerSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">APP_LOC:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'app.asgi:app'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">APP_LOC_IS_FACTORY:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HOST:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PORT:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KEEPALIVE:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RELOAD:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RELOAD_DIRS:</span> <span class="pre">list[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HTTP_WORKERS:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/app/config/settings.html#ServerSettings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.config.settings.ServerSettings" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Server configurations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ServerSettings.APP_LOC">
+<span class="sig-name descname"><span class="pre">APP_LOC</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'app.asgi:app'</span></em><a class="headerlink" href="#app.config.settings.ServerSettings.APP_LOC" title="Link to this definition">¶</a></dt>
+<dd><p>Path to app executable, or factory.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ServerSettings.APP_LOC_IS_FACTORY">
+<span class="sig-name descname"><span class="pre">APP_LOC_IS_FACTORY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#app.config.settings.ServerSettings.APP_LOC_IS_FACTORY" title="Link to this definition">¶</a></dt>
+<dd><p>Indicate if APP_LOC points to an executable or factory.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ServerSettings.HOST">
+<span class="sig-name descname"><span class="pre">HOST</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#app.config.settings.ServerSettings.HOST" title="Link to this definition">¶</a></dt>
+<dd><p>Server network host.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ServerSettings.PORT">
+<span class="sig-name descname"><span class="pre">PORT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><a class="headerlink" href="#app.config.settings.ServerSettings.PORT" title="Link to this definition">¶</a></dt>
+<dd><p>Server port.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ServerSettings.KEEPALIVE">
+<span class="sig-name descname"><span class="pre">KEEPALIVE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><a class="headerlink" href="#app.config.settings.ServerSettings.KEEPALIVE" title="Link to this definition">¶</a></dt>
+<dd><p>Seconds to hold connections open (65 is &gt; AWS lb idle timeout).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ServerSettings.RELOAD">
+<span class="sig-name descname"><span class="pre">RELOAD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#app.config.settings.ServerSettings.RELOAD" title="Link to this definition">¶</a></dt>
+<dd><p>Turn on hot reloading.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ServerSettings.RELOAD_DIRS">
+<span class="sig-name descname"><span class="pre">RELOAD_DIRS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.config.settings.ServerSettings.RELOAD_DIRS" title="Link to this definition">¶</a></dt>
+<dd><p>Directories to watch for reloading.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.ServerSettings.HTTP_WORKERS">
+<span class="sig-name descname"><span class="pre">HTTP_WORKERS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#app.config.settings.ServerSettings.HTTP_WORKERS" title="Link to this definition">¶</a></dt>
+<dd><p>Number of HTTP Worker processes to be spawned by Uvicorn.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.config.settings.ServerSettings.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">APP_LOC:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'app.asgi:app'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">APP_LOC_IS_FACTORY:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HOST:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PORT:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KEEPALIVE:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RELOAD:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RELOAD_DIRS:</span> <span class="pre">list[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HTTP_WORKERS:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#app.config.settings.ServerSettings.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.config.settings.LogSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.config.settings.</span></span><span class="sig-name descname"><span class="pre">LogSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">EXCLUDE_PATHS:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'\\A(?!x)x'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HTTP_EVENT:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'HTTP'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">INCLUDE_COMPRESSED_BODY:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LEVEL:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OBFUSCATE_COOKIES:</span> <span class="pre">set[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OBFUSCATE_HEADERS:</span> <span class="pre">set[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">REQUEST_FIELDS:</span> <span class="pre">list[RequestExtractorField]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RESPONSE_FIELDS:</span> <span class="pre">list[ResponseExtractorField]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">GRANIAN_ACCESS_LEVEL:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">GRANIAN_ERROR_LEVEL:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/app/config/settings.html#LogSettings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.config.settings.LogSettings" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Logger configuration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.LogSettings.EXCLUDE_PATHS">
+<span class="sig-name descname"><span class="pre">EXCLUDE_PATHS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\\A(?!x)x'</span></em><a class="headerlink" href="#app.config.settings.LogSettings.EXCLUDE_PATHS" title="Link to this definition">¶</a></dt>
+<dd><p>Regex to exclude paths from logging.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.LogSettings.HTTP_EVENT">
+<span class="sig-name descname"><span class="pre">HTTP_EVENT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HTTP'</span></em><a class="headerlink" href="#app.config.settings.LogSettings.HTTP_EVENT" title="Link to this definition">¶</a></dt>
+<dd><p>Log event name for logs from Litestar handlers.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.LogSettings.INCLUDE_COMPRESSED_BODY">
+<span class="sig-name descname"><span class="pre">INCLUDE_COMPRESSED_BODY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#app.config.settings.LogSettings.INCLUDE_COMPRESSED_BODY" title="Link to this definition">¶</a></dt>
+<dd><p>Include <code class="docutils literal notranslate"><span class="pre">body</span></code> of compressed responses in log output.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.config.settings.LogSettings.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">EXCLUDE_PATHS:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'\\A(?!x)x'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HTTP_EVENT:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'HTTP'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">INCLUDE_COMPRESSED_BODY:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LEVEL:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OBFUSCATE_COOKIES:</span> <span class="pre">set[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OBFUSCATE_HEADERS:</span> <span class="pre">set[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">REQUEST_FIELDS:</span> <span class="pre">list[RequestExtractorField]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RESPONSE_FIELDS:</span> <span class="pre">list[ResponseExtractorField]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">GRANIAN_ACCESS_LEVEL:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">GRANIAN_ERROR_LEVEL:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">20</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#app.config.settings.LogSettings.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.LogSettings.LEVEL">
+<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><a class="headerlink" href="#app.config.settings.LogSettings.LEVEL" title="Link to this definition">¶</a></dt>
+<dd><p>Stdlib log levels.</p>
+<p>Only emit logs at this level, or higher.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.LogSettings.OBFUSCATE_COOKIES">
+<span class="sig-name descname"><span class="pre">OBFUSCATE_COOKIES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.13)"><span class="pre">set</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.config.settings.LogSettings.OBFUSCATE_COOKIES" title="Link to this definition">¶</a></dt>
+<dd><p>Request cookie keys to obfuscate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.LogSettings.OBFUSCATE_HEADERS">
+<span class="sig-name descname"><span class="pre">OBFUSCATE_HEADERS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.13)"><span class="pre">set</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.config.settings.LogSettings.OBFUSCATE_HEADERS" title="Link to this definition">¶</a></dt>
+<dd><p>Request header keys to obfuscate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.LogSettings.REQUEST_FIELDS">
+<span class="sig-name descname"><span class="pre">REQUEST_FIELDS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">RequestExtractorField</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.config.settings.LogSettings.REQUEST_FIELDS" title="Link to this definition">¶</a></dt>
+<dd><p>Attributes of the <a href="#id1"><span class="problematic" id="id2">`~litestar.connection.request.Request`_</span></a> to be logged.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.LogSettings.RESPONSE_FIELDS">
+<span class="sig-name descname"><span class="pre">RESPONSE_FIELDS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">ResponseExtractorField</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#app.config.settings.LogSettings.RESPONSE_FIELDS" title="Link to this definition">¶</a></dt>
+<dd><p>Attributes of the <a href="#id3"><span class="problematic" id="id4">`~litestar.response.Response`_</span></a> to be logged.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.LogSettings.GRANIAN_ACCESS_LEVEL">
+<span class="sig-name descname"><span class="pre">GRANIAN_ACCESS_LEVEL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#app.config.settings.LogSettings.GRANIAN_ACCESS_LEVEL" title="Link to this definition">¶</a></dt>
+<dd><p>Level to log uvicorn access logs.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.LogSettings.GRANIAN_ERROR_LEVEL">
+<span class="sig-name descname"><span class="pre">GRANIAN_ERROR_LEVEL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#app.config.settings.LogSettings.GRANIAN_ERROR_LEVEL" title="Link to this definition">¶</a></dt>
+<dd><p>Level to log uvicorn error logs.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.config.settings.AppSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.config.settings.</span></span><span class="sig-name descname"><span class="pre">AppSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">URL:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DEBUG:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SECRET_KEY:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NAME:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/app/config/settings.html#AppSettings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.config.settings.AppSettings" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Application configuration.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.config.settings.AppSettings.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">URL:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DEBUG:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SECRET_KEY:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NAME:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#app.config.settings.AppSettings.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.AppSettings.URL">
+<span class="sig-name descname"><span class="pre">URL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#app.config.settings.AppSettings.URL" title="Link to this definition">¶</a></dt>
+<dd><p>The frontend base URL</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.AppSettings.DEBUG">
+<span class="sig-name descname"><span class="pre">DEBUG</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#app.config.settings.AppSettings.DEBUG" title="Link to this definition">¶</a></dt>
+<dd><p>Run <code class="docutils literal notranslate"><span class="pre">Litestar</span></code> with <code class="docutils literal notranslate"><span class="pre">debug=True</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.AppSettings.SECRET_KEY">
+<span class="sig-name descname"><span class="pre">SECRET_KEY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#app.config.settings.AppSettings.SECRET_KEY" title="Link to this definition">¶</a></dt>
+<dd><p>Application secret key.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.AppSettings.NAME">
+<span class="sig-name descname"><span class="pre">NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#app.config.settings.AppSettings.NAME" title="Link to this definition">¶</a></dt>
+<dd><p>Application name.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.config.settings.TemplateSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.config.settings.</span></span><span class="sig-name descname"><span class="pre">TemplateSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ENGINE:</span> <span class="pre">type[~litestar.contrib.jinja.JinjaTemplateEngine]</span> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'litestar.contrib.jinja.JinjaTemplateEngine'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/app/config/settings.html#TemplateSettings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.config.settings.TemplateSettings" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Configures Templating for the project.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.config.settings.TemplateSettings.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ENGINE:</span> <span class="pre">type[~litestar.contrib.jinja.JinjaTemplateEngine]</span> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'litestar.contrib.jinja.JinjaTemplateEngine'&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#app.config.settings.TemplateSettings.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="app.config.settings.TemplateSettings.ENGINE">
+<span class="sig-name descname"><span class="pre">ENGINE</span></span><a class="headerlink" href="#app.config.settings.TemplateSettings.ENGINE" title="Link to this definition">¶</a></dt>
+<dd><p>Template engine to use. (Jinja2 or Mako)</p>
+<p>alias of <a class="reference external" href="https://docs.litestar.dev/2/reference/contrib/jinja.html#litestar.contrib.jinja.JinjaTemplateEngine" title="(in Litestar)"><code class="xref py py-class docutils literal notranslate"><span class="pre">JinjaTemplateEngine</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.config.settings.Settings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.config.settings.</span></span><span class="sig-name descname"><span class="pre">Settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app:</span> <span class="pre">~app.config.settings.AppSettings</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template:</span> <span class="pre">~app.config.settings.TemplateSettings</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vite:</span> <span class="pre">~app.config.settings.ViteSettings</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server:</span> <span class="pre">~app.config.settings.ServerSettings</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log:</span> <span class="pre">~app.config.settings.LogSettings</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/app/config/settings.html#Settings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.config.settings.Settings" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Application settings.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.config.settings.Settings.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app:</span> <span class="pre">~app.config.settings.AppSettings</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template:</span> <span class="pre">~app.config.settings.TemplateSettings</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vite:</span> <span class="pre">~app.config.settings.ViteSettings</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server:</span> <span class="pre">~app.config.settings.ServerSettings</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log:</span> <span class="pre">~app.config.settings.LogSettings</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#app.config.settings.Settings.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.config.settings.Settings.from_env">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_env</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dotenv_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'.env'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#app.config.settings.Settings" title="app.config.settings.Settings"><span class="pre">Settings</span></a></span></span><a class="reference internal" href="../../../_modules/app/config/settings.html#Settings.from_env"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.config.settings.Settings.from_env" title="Link to this definition">¶</a></dt>
+<dd><p>Load settings from environment variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dotenv_filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The name of the dotenv file to load.
+Assumes <code class="docutils literal notranslate"><span class="pre">curdir</span></code> but can pass the rest of the path.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Application settings</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#app.config.settings.Settings" title="app.config.settings.Settings">Settings</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.config.settings.get_settings">
+<span class="sig-prename descclassname"><span class="pre">app.config.settings.</span></span><span class="sig-name descname"><span class="pre">get_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#app.config.settings.Settings" title="app.config.settings.Settings"><span class="pre">Settings</span></a></span></span><a class="reference internal" href="../../../_modules/app/config/settings.html#get_settings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#app.config.settings.get_settings" title="Link to this definition">¶</a></dt>
+<dd><p>Helper function to get settings from elsewhere.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Application settings</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#app.config.settings.Settings" title="app.config.settings.Settings">Settings</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="routes.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">routes</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="../../../contribution-guide.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Contribution guide</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024 Jacob Coffee</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+<a href="https://github.com/JacobCoffee/python-source-builds" aria-label="GitHub">
+  <iconify-icon icon="simple-icons:github"></iconify-icon>
+</a>
+<a href="https://twitter.com/_scriptr" aria-label="X (Twitter)">
+  <iconify-icon icon="prime:twitter"></iconify-icon>
+</a>
+<a href="https://youtube.com/@monorepo" aria-label="YouTube">
+  <iconify-icon icon="simple-icons:youtube"></iconify-icon>
+</a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../../_static/shibuya.js?v=c5fc9e80"></script></body>
+</html>
